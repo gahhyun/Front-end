@@ -1,0 +1,94 @@
+1. 구성 
+
+         스타일(CSS)의 종류(Property)
+           ----
+    선택자 {속성:값;}
+    -----
+    스타일(대상)을 적용할 대상(Selector)
+
+
+2. CSS 선언 방식
+    -내장 방식 
+        -<style></style>의 내용(Contents)으로 
+    -링크 방식
+        -<link/>로 외부 CSS 문서를 가져와서 연결하는 방식
+    -인라인 방식
+        -요소의 style 속성에 직접 스타일을 작성하는 방식
+        -선택자 없음
+    -@import 방식
+        -@import 규칙으로 CSS 문서 안에서 또다른 CSS 문서를 가져와 연결하는 방식
+
+
+3. CSS 선택자
+    1) 기본 선택자
+    2) 복합 선택자
+    3) 가상 클래스
+    4) 가상 요소
+    5) 속성 선택자
+
+
+4. 기본 선택자
+    1) 전체 선택자 (Universal Selector)
+        - *
+        -모든 요소를 선택
+    2) 태그 선택자 (type Selector)
+        - ABC
+        -태그 이름이 ABC인 요소 선택
+    3) 클래스 선택자 (class Selector)
+        - .ABC
+        -HTML class 속성의 값이 ABC인 요소 선택
+    4) 아이디 선택자 (ID Selector)
+        - #ABC
+        - HTML id 속성의 값이 ABC인 요소 선택
+
+
+5. 복합 선택자
+    1) 일치 선택자 (Basic Combinator)
+        -ABCXYZ
+        -선택자 ABC와 XYZ를 동시에 만족하는 요소 선택
+    2) 자식 선택자 (Child Combinator)
+        -ABC>XYZ 
+        -선택자 ABC의 자식 요소 XYZ 선택
+    3) 하위(후손)선택자 (Descendent Combinator)
+        -  ABC XYZ
+        -선택자 ABC의 하위 요소 XYZ 선택
+        -'띄어쓰기'가 선택자의 기호
+    4) 인접 형제 선택자 (Adjacent Sibling Combinator)
+        - ABC + XYZ
+        -선택자 ABC 다음 형제 요소 XYZ 하나를 선택
+    5) 일반 형태 선택자 (General Sibling Combinator)
+        - ABC ~ XYZ
+
+
+6. 가상 클래스 선택자 (PShadow-Class)
+    1) HOVER
+        - ABC:hover 
+        -선택자 ABC 요소에 마우스 커서가 올라가 있는 동안 선택
+                          ---------------------------
+    2) ACTIVE
+        - ABC:active 
+        -선택자 ABC 요소에 마우스를 클릭하고 있는 동안 선택 
+                         --------------------------
+    3) FOCUS
+        - ABC:focus 
+        -선택자 ABC 요소에 포커스되면 선택
+                          ---------
+    4) FIRST-Child
+        - ABC:first-child 
+        -선택자 ABC가 형제 요소 중 첫째라면 선택   
+                                 
+    5) LAST-Child
+        -ABC:last-child
+        -선택자 ABC가 형제 요소 중 막내라면 선택
+
+    6) NTH-CHILD 
+        - ABC:anh-child(n)
+        -선택자 ABC가 형제 요소 중 (n)번째라면 선택
+
+    7) NTH-CHILD 
+        - ABC:anh-child(2n)  //2의 배수로 출력
+        -선택자 ABC가 형제 요소 중 (2n)번째라면 선택
+        -n은 0부터 시작(Zero-Based Numbering)
+    
+
+
