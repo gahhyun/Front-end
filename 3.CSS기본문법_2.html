@@ -1,0 +1,113 @@
+-8) NTH-CHILD 
+    - ABC:anh-child(2n+1)  //홀수로 출력
+    -선택자 ABC가 형제 요소 중 (2n)번째라면 선택
+    -n은 0부터 시작(Zero-Based Numbering)
+
+9) NTH-CHILD 
+- ABC:anh-child(n+2)  //2,3,4,5...
+-선택자 ABC가 형제 요소 중 (2n)번째라면 선택
+-n은 0부터 시작(Zero-Based Numbering)
+
+10) 부정 선택자 (NOT)
+- ABC:not(XYZ)
+-선택자 XYZ가 아닌 ABC 요소 선택
+
+
+7. 가상 요소 선택자 (Pseudo-Elements)
+1) ABC::=before
+  ---------
+  인라인(글자)요소
+  -선택자ABC 요소의 내부 앞에 내용(content)을 삽입
+  <style>
+    .box::before{   /*3월 마지막 주 앞에 벚꽃 핌이 작성된다*/
+      content: 벚꽃 핌;
+   }
+  </style>
+</head>
+<body>
+  <div class="box">
+    3월 마지막 주
+  </div>
+</body>
+
+2) ABC::=after
+  ---------
+  인라인(글자)요소
+  -선택자ABC 요소의 내부 뒤에 내용(content)을 삽입
+  <style>
+    .box::after{   /*3월 마지막 주 뒤에 벚꽃 핌이 작성된다*/
+      content: 벚꽃 핌;
+   }
+  </style>
+</head>
+<body>
+  <div class="box">
+    3월 마지막 주
+  </div>
+</body>
+
+8. 속성 선택자 (Attribute)
+1) [ABC]
+-속성 ABC를 포함한 요소 선택
+  <style>
+    [disabled]{ /*disabled가 포함된 요소인 ABCD가 red로 출력*/
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" value="ABCD" disabled>
+</body>
+
+2) [ABC="XYZ"]
+-속성 ABC를 포함하고 값이 XYZ인 요소 선택
+<style>
+  [type]{ /*type가 포함된 모든요소가 red로 출력*/
+    color: red;
+  }
+</style>
+</head>
+<body>
+<input type="text" value="EXTRA">
+<input type="password" value="0629">
+<input type="text" value="ABCD" disabled>
+</body>
+
+
+9. 스타일 상속
+1) 상속되는 CSS 속성들
+-모두 글자/문자 관련 속성들
+-모든 글자/문자 속성은 아님
+
+ font-style(글자 기울기)
+ font-weight(글자 두께)
+ font-size(글자 크기)
+ line-heigth(줄 높이)
+ font-family(폰트 서체)
+ text-aling(정렬)
+
+10. 선택자 우선순위
+1) 우선순위
+-같은 요소가 여러 선언의 대상이 된 경우 어떤 선언의 css속성을 우선 적용할지 결정하는 방법
+-점수가 높은 선언이 우선함 
+    -점수
+        -!important        : 무한대
+        -인라인 선언(style) : 1000점  
+        -ID 선택자          : 100점
+        -Class 선택자       : 10점
+        -태그(요소) 선택자        : 1점
+        -전체 선택자        : 0점
+        -상속은 점수가 없다
+-점수가 같으면, 가장 마지막에 해석된 선언이 우선함
+
+2) .list li.item {color : red;}
+=> 10점 + 1점 + 10점 = 21점 (.=class선택자)
+
+.list li:hover {color : red;}
+=> 10점 + 1점 + 10점 = 21점 (hover은 가상class선택자 이므로 10점)
+
+.box::before {color : red;}
+=> 10점 + 1점 = 11점
+
+#submit span {color : red;}
+=> 100점 + 1점 = 101점
